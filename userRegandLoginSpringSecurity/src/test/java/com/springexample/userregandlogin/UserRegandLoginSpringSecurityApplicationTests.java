@@ -1,4 +1,4 @@
-package com.springexample.userRegandLoginSpringSecurity;
+package com.springexample.userregandlogin;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,16 +1,9 @@
-package com.springexample.userRegandLoginSpringSecurity.model;
+package com.springexample.userregandlogin.model;
 
-import java.util.Collection;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Email;
@@ -36,17 +29,7 @@ public class User{
 	@NotEmpty(message="password must not be empty")
 	@Column(name= "password",nullable = false)
 	private String password;
-	
-	@ManyToMany(fetch =FetchType.EAGER, cascade = CascadeType.ALL)
-	@JoinTable(
-			name = "user_roles",
-			joinColumns =  @JoinColumn(
-					name = "user_uid", referencedColumnName = "id"),
-			inverseJoinColumns =  @JoinColumn(
-					name = "role_uid", referencedColumnName = "id")
-			)
-	private Collection<Roles> roles;
-	
+		
 	@Column(name= "check_terms")
 	private boolean checkterms;
 
@@ -55,7 +38,7 @@ public class User{
 	@Override
 	public String toString() {
 		return "User [userid=" + userid + ", fullname=" + fullname + ", email=" + email + ", password=" + password
-				+ ", roles=" + roles + ", checkterms=" + checkterms + "]";
+				+ ", checkterms=" + checkterms + "]";
 	}
 	public User() {
 		super();
@@ -65,14 +48,13 @@ public class User{
 	public User(@NotEmpty(message = "user id must not be empty") String userid,
 			@NotEmpty(message = "full name must not be empty") String fullname,
 			@NotEmpty(message = "email must not be empty") @Email(message = "invalid email") String email,
-			@NotEmpty(message = "password must not be empty") String password, Collection<Roles> roles,
+			@NotEmpty(message = "password must not be empty") String password,
 			boolean checkterms) {
 		super();
 		this.userid = userid;
 		this.fullname = fullname;
 		this.email = email;
 		this.password = password;
-		this.roles = roles;
 		this.checkterms = checkterms;
 	}
 	public Long getId() {
@@ -104,12 +86,6 @@ public class User{
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public Collection<Roles> getRoles() {
-		return roles;
-	}
-	public void setRoles(Collection<Roles> roles) {
-		this.roles = roles;
 	}
 	public boolean isCheckterms() {
 		return checkterms;

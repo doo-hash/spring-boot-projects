@@ -18,16 +18,16 @@ section{
 <section class="container-fluid p-2">
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-            <span class="d-flex px-2" sec:authorize="isAuthenticated()">
+            <span class="d-flex px-2">
       	<a class="nav-link" th:href="@{/home/admin/profile}">Profile</a>
       </span>
-            <span class="d-flex px-2" sec:authorize="isAuthenticated()">
+            <span class="d-flex px-2">
       	<a class="nav-link" th:href="@{/home/admin/notifications}">Notifications</a>
       </span>
-            <span class="d-flex px-2" sec:authorize="isAuthenticated()">
+            <span class="d-flex px-2">
       	<a class="nav-link" th:href="@{/home/admin/settings}">Settings</a>
       </span>
-      <span class="d-flex px-2" sec:authorize="isAuthenticated()">
+      <span class="d-flex px-2">
       	<a class="nav-link" th:href="@{/home/user/logout}">Logout</a>
       </span>
     </div>
@@ -37,16 +37,16 @@ section{
 <h1 class="text-center">Welcome to our After Login Page.</h1>
 </div>
 <h3 class="text-center text-success p-2"> Welcome to our Admin Portal..</h3>
-Welcome <span sec:authentication="principal.username"></span>
+Welcome <span></span>
 <br>
 <br>
-<span sec:authentication="name"></span>
+<span></span>
 <br>
-<span sec:authentication="principal.authorities"></span>
-<div sec:authorize="hasAuthority('ADMIN')">
+<span></span>
+<div>
   This content is only shown to administrators.
 </div>
-<div sec:authorize="hasAuthority('USER')">
+<div>
   This content is only shown to users.
 </div>
 
@@ -55,7 +55,6 @@ Welcome <span sec:authentication="principal.username"></span>
 <td>Full Name</td><td th:text="${admin.fullname}"></td></tr>
 <tr><td>Email</td><td th:text="${admin.email}"></td></tr>
 <tr><td>Admin id</td><td th:text="${admin.userid}"></td></tr>
-<tr><td>Role</td><td th:text="${admin.roles}"></td>
 </tr>
 </table>
 </section>

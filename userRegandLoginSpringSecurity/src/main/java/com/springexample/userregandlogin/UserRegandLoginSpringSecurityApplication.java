@@ -1,4 +1,4 @@
-package com.springexample.userRegandLoginSpringSecurity;
+package com.springexample.userregandlogin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

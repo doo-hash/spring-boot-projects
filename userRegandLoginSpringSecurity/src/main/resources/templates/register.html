@@ -27,7 +27,7 @@ section{
           <a class="nav-link active" aria-current="page" href="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/about">About</a>
+          <a class="nav-link" href="/">About</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -78,17 +78,6 @@ section{
 		<input type="password" class="form-control" th:field="*{password}" name="password" id="password" />
 				<p th:if="${#fields.hasErrors('email')}" style="color:green;" th:errors="*{email}" />
 	</div>
-	<div class="form-group p-2">
-		<label>Roles:
-        <input type="checkbox"  class="px-2 mx-3" 
-        name="roles"
-            th:each="data : ${roles}"
-            th:text="${data}"
-            th:value="${data}"
-            th:field="*{roles}"
-        />
-    	</label>	
-    </div>
     <div class="form-group p-2">
     <label>Check Me
     </label>
